@@ -1,13 +1,10 @@
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
-# Load a sample dataset from GeoPandas (world map)
-world = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
-
-# Filter (example: Europe only)
-europe = world[world["continent"] == "Europe"]
+# Load shapefile from the data folder
+world = gpd.read_file("data/ne_110m_admin_0_boundary_lines_land.shp")
 
 # Plot
-europe.plot(color="lightblue", edgecolor="black")
-plt.title("Simple Map of Europe")
+world.plot(color="lightblue", edgecolor="black")
+plt.title("World Boundary Lines (Natural Earth)")
 plt.show()
